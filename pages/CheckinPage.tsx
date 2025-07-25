@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import CheckinForm from '../components/CheckinForm/CheckinForm';
+import Header from '../src/components/Header/Header';
+import Footer from '../src/components/Footer/Footer';
+import CheckinForm from '../src/components/CheckinForm/CheckinForm';
 
 export default function CheckinPage() {
   const location = useLocation();
