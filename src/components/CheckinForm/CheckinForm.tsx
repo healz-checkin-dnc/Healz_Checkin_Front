@@ -56,7 +56,7 @@ const CheckinForm = ({ token }: Props) => {
     console.log('🔍 useEffect firing, token =', token);
     if (!token) return;
 
-    fetch(`https://healzcheckinback-production.up.railway.app/`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/send-form`)
       .then((res) => {
         if (!res.ok) throw new Error('Token inválido ou expirado');
         return res.json();
@@ -78,8 +78,9 @@ const CheckinForm = ({ token }: Props) => {
       const response = await handle.execute(data);
       setSubmitMessage(response.message);
       setIsSubmitted(true);
-    } catch {
-      setSubmitMessage('Erro ao fazer check-in.');
+    } catch (error) {
+      console.error('Erro no submit:', error);
+      setSubmitMessage('Erro ao fazer check-in. Veja console para detalhes.');
     }
   };
 
